@@ -7,7 +7,7 @@
 const SAVE_KEY = "yumeGachaSave_v1";
 
 const START_COINS = 100;
-const DRAW_INTERVAL_MINUTES = 10 / 60;
+const DRAW_INTERVAL_MINUTES = 1 / 60;
 const COINS_PER_INTERVAL = 1;
 const MAX_OFFLINE_HOURS = 8;
 const UNLOCK_COST = 50;
@@ -289,7 +289,7 @@ function updateIncomeStatus() {
   const seconds = Math.ceil(remaining / 1000);
 
   incomeStatus.textContent =
-    `次のコインまで約 ${seconds} 秒。10秒ごとに1コイン獲得します。`;
+    `次のコインまで約 ${seconds} 秒。1秒ごとに1コイン獲得します。`;
 }
 
 function tickIncome() {
