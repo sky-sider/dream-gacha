@@ -13,11 +13,15 @@ const MAX_OFFLINE_HOURS = 8;
 const UNLOCK_COST = 50;
 const UNLOCK_COLLECTION_COUNT = 5;
 
+
 // アイテムのデータ
 // weight が大きいほど出やすくなります。
-// 各ガチャの中で、weight の合計を使って抽選します。
+// machine は排出されるガチャのIDです。
 
 const items = [
+  // ========================================
+  // はじまりのガチャ：既存の5種類
+  // ========================================
   {
     id: "moon-cat",
     name: "ゆめねこ",
@@ -63,6 +67,75 @@ const items = [
     machine: "starter",
     description: "誰かが見た夢が、ひとつ入っています。"
   },
+
+  // はじまりのガチャ：追加7種類
+  {
+    id: "sleepy-moon",
+    name: "おねむの月",
+    icon: "🌙",
+    rarity: "ノーマル",
+    weight: 20,
+    machine: "starter",
+    description: "毎晩、町のみんなが眠るまで見守っています。"
+  },
+  {
+    id: "dream-pillow",
+    name: "ひつじのまくら",
+    icon: "🐑",
+    rarity: "ノーマル",
+    weight: 20,
+    machine: "starter",
+    description: "抱きしめると、ひつじの夢が見られます。"
+  },
+  {
+    id: "rain-cloud",
+    name: "わたあめ雲",
+    icon: "☁️",
+    rarity: "ノーマル",
+    weight: 20,
+    machine: "starter",
+    description: "ときどき甘い雨を降らせる小さな雲。"
+  },
+  {
+    id: "dream-key",
+    name: "夢のかぎ",
+    icon: "🗝️",
+    rarity: "ノーマル",
+    weight: 15,
+    machine: "starter",
+    description: "どこの扉を開けるのか、持ち主も知りません。"
+  },
+  {
+    id: "night-lantern",
+    name: "夜ふかしランタン",
+    icon: "🏮",
+    rarity: "レア",
+    weight: 5,
+    machine: "starter",
+    description: "暗い夢の中でも、帰り道を照らしてくれます。"
+  },
+  {
+    id: "dream-bird",
+    name: "星うたの小鳥",
+    icon: "🐦",
+    rarity: "レア",
+    weight: 4,
+    machine: "starter",
+    description: "歌声を聞いた人は、楽しい夢を見るそうです。"
+  },
+  {
+    id: "rainbow-moon",
+    name: "虹色の三日月",
+    icon: "🌛",
+    rarity: "スーパーレア",
+    weight: 2,
+    machine: "starter",
+    description: "めったに姿を見せない、夢の空の宝物。"
+  },
+
+  // ========================================
+  // おとぎの森ガチャ：既存の5種類
+  // ========================================
   {
     id: "forest-spirit",
     name: "森のこびと",
@@ -107,6 +180,71 @@ const items = [
     weight: 3,
     machine: "forest",
     description: "植えると、まだ誰も見たことのない花が咲くそうです。"
+  },
+
+  // おとぎの森ガチャ：追加7種類
+  {
+    id: "mushroom-house",
+    name: "きのこのおうち",
+    icon: "🏠",
+    rarity: "ノーマル",
+    weight: 20,
+    machine: "forest",
+    description: "夜になると窓に小さな明かりがともります。"
+  },
+  {
+    id: "sleepy-fox",
+    name: "うとうとキツネ",
+    icon: "🦊",
+    rarity: "ノーマル",
+    weight: 20,
+    machine: "forest",
+    description: "お気に入りの切り株で、いつもお昼寝。"
+  },
+  {
+    id: "moon-flower",
+    name: "月あかり草",
+    icon: "🌼",
+    rarity: "ノーマル",
+    weight: 20,
+    machine: "forest",
+    description: "月が昇ると花びらが淡く光ります。"
+  },
+  {
+    id: "acorn-fairy",
+    name: "どんぐり妖精",
+    icon: "🌰",
+    rarity: "ノーマル",
+    weight: 15,
+    machine: "forest",
+    description: "どんぐりを集めて、森の仲間に配っています。"
+  },
+  {
+    id: "moss-turtle",
+    name: "こけむしカメ",
+    icon: "🐢",
+    rarity: "レア",
+    weight: 5,
+    machine: "forest",
+    description: "背中に小さな森を育てている不思議なカメ。"
+  },
+  {
+    id: "crystal-butterfly",
+    name: "水晶のちょう",
+    icon: "🦋",
+    rarity: "レア",
+    weight: 4,
+    machine: "forest",
+    description: "羽ばたくたびに、きらきらした粉が舞います。"
+  },
+  {
+    id: "ancient-tree",
+    name: "夢守りの大樹",
+    icon: "🌳",
+    rarity: "スーパーレア",
+    weight: 2,
+    machine: "forest",
+    description: "町が生まれる前から、夢を見守っている大樹。"
   }
 ];
 
