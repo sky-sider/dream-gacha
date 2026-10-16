@@ -79,17 +79,73 @@
       </div>
     </section>
 
-    <section class="section collection-section">
-      <div class="section-heading">
-        <h2>夢のアイテム図鑑</h2>
-        <span id="collection-count" class="tag">0 / 10</span>
-      </div>
-      <div class="collection-progress">
-        <div id="progress-bar"></div>
-      </div>
-      <p class="hint">初めて手に入れたアイテムが図鑑に登録されます。</p>
-      <div id="collection" class="collection-grid"></div>
-    </section>
+<!-- ================================
+     コレクション図鑑
+================================= -->
+<section class="collection-section" id="collection-section">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">DREAM COLLECTION</p>
+      <h2>📖 夢のアイテム図鑑</h2>
+      <p class="section-description">
+        夢の町で出会ったものを集めよう。
+      </p>
+    </div>
+  </div>
+
+  <!-- 全体の収集率 -->
+  <div class="collection-summary">
+    <div class="collection-summary-top">
+      <span>全体の収集率</span>
+      <strong id="collection-count">0 / 24種類</strong>
+    </div>
+
+    <div class="collection-progress-track">
+      <div
+        class="collection-progress-fill"
+        id="progress-bar"
+        style="width: 0%;"
+      ></div>
+    </div>
+
+    <p id="collection-rate">まだまだこれから。夢を集めよう！</p>
+  </div>
+
+  <!-- ガチャ別タブ：JavaScriptで自動生成 -->
+  <div
+    class="collection-tabs"
+    id="collection-tabs"
+    role="tablist"
+    aria-label="図鑑の表示切り替え"
+  ></div>
+
+  <!-- 選択中のガチャの収集率 -->
+  <div class="collection-category-summary">
+    <div>
+      <h3 id="collection-category-title">すべてのアイテム</h3>
+      <p id="collection-category-description">
+        夢の町にあるアイテムを集めよう。
+      </p>
+    </div>
+
+    <strong id="collection-category-count">0 / 24種類</strong>
+  </div>
+
+  <div class="collection-progress-track category-progress-track">
+    <div
+      class="collection-progress-fill category-progress-fill"
+      id="collection-category-progress"
+      style="width: 0%;"
+    ></div>
+  </div>
+
+  <!-- アイテム一覧 -->
+  <div
+    class="collection-grid"
+    id="collection"
+    aria-live="polite"
+  ></div>
+</section>
 
     <section class="section">
       <div class="section-heading">
@@ -97,16 +153,16 @@
         <span class="tag">UNLOCK</span>
       </div>
       <div id="unlock-card" class="unlock-card">
-        <div class="unlock-icon">🌿</div>
-        <div class="unlock-copy">
-          <h3>おとぎの森ガチャ</h3>
-          <p>森に住む、不思議な生き物たち。</p>
-          <p id="unlock-requirements">図鑑5種類・50コインが必要</p>
-        </div>
-        <button id="unlock-button" class="button secondary">
-          解放する
-        </button>
-      </div>
+  <div class="unlock-icon" id="unlock-icon">🌿</div>
+  <div class="unlock-copy">
+    <h3 id="unlock-name">おとぎの森ガチャ</h3>
+    <p id="unlock-description">森に住む、不思議な生き物たち。</p>
+    <p id="unlock-requirements">購入価格：50コイン</p>
+  </div>
+  <button id="unlock-button" class="button secondary">
+    購入する
+  </button>
+</div>
     </section>
 
     <section class="section pocket">
