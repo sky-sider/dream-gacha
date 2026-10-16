@@ -357,7 +357,343 @@ const items = [
     weight: 1,
     machine: "starry",
     description: "まだ誰も見たことのない夢が集まった銀河。"
-  }
+  },
+
+  // ========================================
+  // おかしの国ガチャ：新規12種類
+  // ========================================
+  {
+    id: "sweet-strawberry-cake",
+    name: "いちごケーキ",
+    icon: "🍰",
+    rarity: "ノーマル",
+    weight: 25,
+    machine: "sweets",
+    description: "ひとくち食べると、幸せな夢が広がるケーキ。"
+  },
+  {
+    id: "dream-pudding",
+    name: "夢色プリン",
+    icon: "🍮",
+    rarity: "ノーマル",
+    weight: 25,
+    machine: "sweets",
+    description: "ぷるぷる揺れるたび、夢の色が変わります。"
+  },
+  {
+    id: "star-cupcake",
+    name: "星空カップケーキ",
+    icon: "🧁",
+    rarity: "ノーマル",
+    weight: 25,
+    machine: "sweets",
+    description: "クリームの上に、小さな星が輝いています。"
+  },
+  {
+    id: "sweets-moon-cookie",
+    name: "お月さまクッキー",
+    icon: "🍪",
+    rarity: "ノーマル",
+    weight: 25,
+    machine: "sweets",
+    description: "夜に食べると、月まで届く夢を見られます。"
+  },
+  {
+    id: "fluffy-donut",
+    name: "ふわふわドーナツ",
+    icon: "🍩",
+    rarity: "ノーマル",
+    weight: 20,
+    machine: "sweets",
+    description: "雲のように軽く、口の中でとけてしまいます。"
+  },
+  {
+    id: "rainbow-candy",
+    name: "虹色キャンディ",
+    icon: "🍬",
+    rarity: "ノーマル",
+    weight: 20,
+    machine: "sweets",
+    description: "なめるたびに、違う味の夢が見られます。"
+  },
+  {
+    id: "swirl-lollipop",
+    name: "ぐるぐるキャンディ",
+    icon: "🍭",
+    rarity: "ノーマル",
+    weight: 20,
+    machine: "sweets",
+    description: "ぐるぐる模様を見つめると、夢の入口が現れます。"
+  },
+  {
+    id: "heart-chocolate",
+    name: "ハートチョコ",
+    icon: "🍫",
+    rarity: "レア",
+    weight: 8,
+    machine: "sweets",
+    description: "大切な人を思い浮かべると、甘く香ります。"
+  },
+  {
+    id: "three-color-dango",
+    name: "三色だんご",
+    icon: "🍡",
+    rarity: "レア",
+    weight: 8,
+    machine: "sweets",
+    description: "春・夏・秋の夢が、ひと串に並んでいます。"
+  },
+  {
+    id: "cloud-pancake",
+    name: "雲のパンケーキ",
+    icon: "🥞",
+    rarity: "レア",
+    weight: 6,
+    machine: "sweets",
+    description: "シロップをかけると、ふわりと宙に浮かびます。"
+  },
+  {
+    id: "night-parfait",
+    name: "夜空のパフェ",
+    icon: "🍨",
+    rarity: "レア",
+    weight: 5,
+    machine: "sweets",
+    description: "グラスの中に、夜空と流れ星が閉じ込められています。"
+  },
+  {
+    id: "strawberry-macaron",
+    name: "いちごマカロン",
+    icon: "🍓",
+    rarity: "スーパーレア",
+    weight: 2,
+    machine: "sweets",
+    description: "めったに出会えない、いちご色の夢のお菓子。"
+  },
+
+// ========================================
+// まぼろし和風ガチャ：新規12種類
+// ========================================
+{
+id: "japan-maneki-neko",
+name: "夢招き猫",
+icon: "🐈",
+rarity: "ノーマル",
+weight: 25,
+machine: "japan",
+description: "右手を上げると、楽しい夢を招いてくれる招き猫。"
+},
+{
+id: "japan-paper-lantern",
+name: "狐火ちょうちん",
+icon: "🏮",
+rarity: "ノーマル",
+weight: 25,
+machine: "japan",
+description: "暗い夜道で、迷子の夢をそっと照らします。"
+},
+{
+id: "japan-folding-fan",
+name: "夢見の扇子",
+icon: "🎐",
+rarity: "ノーマル",
+weight: 25,
+machine: "japan",
+description: "ひと振りすると、どこか懐かしい風が吹きます。"
+},
+{
+id: "japan-sakura-mochi",
+name: "桜もち",
+icon: "🍡",
+rarity: "ノーマル",
+weight: 25,
+machine: "japan",
+description: "食べると、満開の桜の夢が見られるお菓子。"
+},
+{
+id: "japan-tanuki",
+name: "化けだぬき",
+icon: "🦝",
+rarity: "ノーマル",
+weight: 20,
+machine: "japan",
+description: "木の葉をお金に変えようとしている、いたずら好き。"
+},
+{
+id: "japan-kitsune-mask",
+name: "きつねのお面",
+icon: "🦊",
+rarity: "ノーマル",
+weight: 20,
+machine: "japan",
+description: "かぶると、ほんの少しだけ狐の気持ちがわかります。"
+},
+{
+id: "japan-origami-crane",
+name: "夢折り鶴",
+icon: "🕊️",
+rarity: "ノーマル",
+weight: 20,
+machine: "japan",
+description: "願いごとを乗せて、夢の空を飛ぶ折り鶴。"
+},
+{
+id: "japan-kappa",
+name: "きゅうり好きの河童",
+icon: "🥒",
+rarity: "レア",
+weight: 8,
+machine: "japan",
+description: "頭のお皿が乾くと、急にお昼寝を始めます。"
+},
+{
+id: "japan-lucky-daruma",
+name: "願かけだるま",
+icon: "🔴",
+rarity: "レア",
+weight: 8,
+machine: "japan",
+description: "願いがかなうまで、ころんでも起き上がります。"
+},
+{
+id: "japan-moon-bridge",
+name: "月渡りの太鼓橋",
+icon: "🌙",
+rarity: "レア",
+weight: 6,
+machine: "japan",
+description: "渡るたびに、少し違う夢の景色へたどり着きます。"
+},
+{
+id: "japan-yuki-onna",
+name: "雪女のかんざし",
+icon: "❄️",
+rarity: "レア",
+weight: 5,
+machine: "japan",
+description: "雪の夜にだけ、淡い青白い光を放ちます。"
+},
+{
+id: "japan-dragon-pearl",
+name: "龍神の夢玉",
+icon: "🐉",
+rarity: "スーパーレア",
+weight: 2,
+machine: "japan",
+description: "古い伝説に語られる、夢の力を宿した不思議な玉。"
+},
+
+// ========================================
+// 水晶の秘境ガチャ：新規12種類
+// ========================================
+{
+id: "crystal6-clear-quartz",
+name: "すきとおる水晶",
+icon: "💎",
+rarity: "ノーマル",
+weight: 25,
+machine: "crystal6",
+description: "光を受けると、小さな虹が浮かび上がる水晶。"
+},
+{
+id: "crystal6-rose-quartz",
+name: "桜色のローズクォーツ",
+icon: "🩷",
+rarity: "ノーマル",
+weight: 25,
+machine: "crystal6",
+description: "春の夢を閉じ込めたような、淡い桃色の結晶。"
+},
+{
+id: "crystal6-amethyst",
+name: "夜紫のアメジスト",
+icon: "🔮",
+rarity: "ノーマル",
+weight: 25,
+machine: "crystal6",
+description: "見つめていると、遠い星の夢が見えてきます。"
+},
+{
+id: "crystal6-citrine",
+name: "陽だまりシトリン",
+icon: "🌟",
+rarity: "ノーマル",
+weight: 25,
+machine: "crystal6",
+description: "手のひらに乗せると、ぽかぽか温かくなる石。"
+},
+{
+id: "crystal6-rainbow-crystal",
+name: "虹の結晶",
+icon: "🌈",
+rarity: "ノーマル",
+weight: 20,
+machine: "crystal6",
+description: "見る角度によって、七色に輝きが変わります。"
+},
+{
+id: "crystal6-moonstone",
+name: "月影のムーンストーン",
+icon: "🌙",
+rarity: "ノーマル",
+weight: 20,
+machine: "crystal6",
+description: "夜になると、石の中に小さな月が現れます。"
+},
+{
+id: "crystal6-crystal-flower",
+name: "水晶の花",
+icon: "🌸",
+rarity: "ノーマル",
+weight: 20,
+machine: "crystal6",
+description: "枯れることなく、夢の中で咲き続ける花。"
+},
+{
+id: "crystal6-fairy-stone",
+name: "結晶の妖精",
+icon: "🧚",
+rarity: "レア",
+weight: 8,
+machine: "crystal6",
+description: "鉱石のすき間に住む、小さく光る妖精。"
+},
+{
+id: "crystal6-crystal-bell",
+name: "水晶の鈴",
+icon: "🔔",
+rarity: "レア",
+weight: 8,
+machine: "crystal6",
+description: "鳴らすと、忘れていた楽しい記憶がよみがえります。"
+},
+{
+id: "crystal6-starlight-geode",
+name: "星明かりの晶洞",
+icon: "✨",
+rarity: "レア",
+weight: 6,
+machine: "crystal6",
+description: "割れ目の奥に、夜空のような光が広がっています。"
+},
+{
+id: "crystal6-crystal-deer",
+name: "水晶のこじか",
+icon: "🦌",
+rarity: "レア",
+weight: 5,
+machine: "crystal6",
+description: "森の奥で出会える、透明な角を持つ小鹿。"
+},
+{
+id: "crystal6-heart-of-dreams",
+name: "夢晶の心臓",
+icon: "💖",
+rarity: "スーパーレア",
+weight: 2,
+machine: "crystal6",
+description: "夢の町の不思議な力が結晶になった、幻の宝石。"
+}
 ];
 
 // ガチャ機械のデータ
@@ -388,6 +724,33 @@ const machines = [
     unlockCost: 100,
     icon: "🌌",
     theme: "purple"
+  },
+  {
+    id: "sweets",
+    name: "おかしの国ガチャ",
+    description: "ケーキやキャンディ、甘い夢のお菓子たち。",
+    price: 25,
+    unlockCost: 500,
+    icon: "🍰",
+    theme: "orange"
+  },
+  {
+    id: "japan",
+    name: "まぼろし和風ガチャ",
+    description: "妖怪や縁起物が集まる、ふしぎな和風のガチャ。",
+    price: 30,
+    unlockCost: 1000,
+    icon: "🎐",
+    theme: "rose"
+  },
+  {
+    id: "crystal6",
+    name: "水晶の秘境ガチャ",
+    description: "不思議な水晶や、夢の力を宿した結晶たち。",
+    price: 35,
+    unlockCost: 2000,
+    icon: "💎",
+    theme: "crystal"
   }
 ];
 
@@ -487,6 +850,8 @@ function saveGame() {
 // ========================================
 
 const coinDisplay = document.getElementById("coins");
+const currentCoinsValue =
+  document.getElementById("current-coins-value");
 const machineList = document.getElementById("machines");
 const machineTitle = document.getElementById("machine-title");
 const machineDescription = document.getElementById("machine-description");
@@ -552,7 +917,13 @@ function getMachineItems(machineId) {
 // ========================================
 
 function renderCoins() {
-  coinDisplay.textContent = Math.floor(save.coins).toLocaleString();
+  const coins = Math.floor(save.coins).toLocaleString();
+
+  // 画面上部のコイン表示を更新
+  coinDisplay.textContent = coins;
+
+  // ガチャボタン下のコイン表示を更新
+  currentCoinsValue.textContent = coins;
 }
 
 function updateIncomeStatus() {
@@ -578,15 +949,18 @@ function tickIncome() {
   if (minutes > 0) {
     save.coins += minutes * COINS_PER_INTERVAL;
 
-    // 加算した時間分だけ時刻を進める。
-    // タイマーが少し遅れても、経過時間を失いにくくする。
+    // 加算した時間分だけ時刻を進める
     save.lastTime += minutes * minuteMs;
 
+    // コイン残高と、関連する画面表示を更新
     renderCoins();
+    renderPlayArea();
+    renderMachines();
     saveGame();
     renderUnlock();
   }
 
+  // コインが増えていない場合も、残り時間表示を更新
   updateIncomeStatus();
 }
 
@@ -607,12 +981,9 @@ function renderMachines() {
     if (selected) card.classList.add("selected");
     if (!unlocked) card.classList.add("locked");
 
-    const art = document.createElement("div");
-    art.className = "mini-machine";
-
-    if (machine.theme === "green") {
-      art.classList.add("green");
-    }
+const art = document.createElement("div");
+art.className = "mini-machine";
+art.classList.add(machine.theme);
 
     const windowBox = document.createElement("div");
     windowBox.className = "mini-window";
@@ -666,7 +1037,7 @@ function renderPlayArea() {
   machineDescription.textContent = machine.description;
   priceDisplay.textContent = machine.price;
 
-  machineArt.classList.toggle("green", machine.theme === "green");
+  machineArt.className = `machine-art ${machine.theme}`;
   capsule.textContent = machine.icon;
 
   drawButton.disabled = isDrawing || save.coins < machine.price;
