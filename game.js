@@ -245,6 +245,118 @@ const items = [
     weight: 2,
     machine: "forest",
     description: "町が生まれる前から、夢を見守っている大樹。"
+  },
+
+  // ========================================
+  // 星空ガチャ：新規12種類
+  // ========================================
+  {
+    id: "starry-bottle",
+    name: "星空の小びん",
+    icon: "🧪",
+    rarity: "ノーマル",
+    weight: 25,
+    machine: "starry",
+    description: "夜空のきらめきを、ひとしずく閉じ込めた小びん。"
+  },
+  {
+    id: "moon-cookie",
+    name: "三日月クッキー",
+    icon: "🍪",
+    rarity: "ノーマル",
+    weight: 25,
+    machine: "starry",
+    description: "食べると、月まで届きそうな夢を見られます。"
+  },
+  {
+    id: "sleeping-star",
+    name: "おやすみ星",
+    icon: "💫",
+    rarity: "ノーマル",
+    weight: 25,
+    machine: "starry",
+    description: "眠る前に枕元へ置くと、星がひとつ瞬きます。"
+  },
+  {
+    id: "comet-feather",
+    name: "ほうき星の羽",
+    icon: "🪶",
+    rarity: "ノーマル",
+    weight: 20,
+    machine: "starry",
+    description: "風に乗せると、遠い夢の町まで飛んでいきます。"
+  },
+  {
+    id: "night-lamp",
+    name: "星あかりランプ",
+    icon: "🏮",
+    rarity: "ノーマル",
+    weight: 20,
+    machine: "starry",
+    description: "暗い夜道に、小さな星の光を灯します。"
+  },
+  {
+    id: "planet-marble",
+    name: "惑星ビー玉",
+    icon: "🔮",
+    rarity: "ノーマル",
+    weight: 20,
+    machine: "starry",
+    description: "中をのぞくと、知らない惑星が回っています。"
+  },
+  {
+    id: "starry-cat",
+    name: "星空ねこ",
+    icon: "🐈",
+    rarity: "レア",
+    weight: 8,
+    machine: "starry",
+    description: "毛並みの中に、小さな星座が浮かんでいます。"
+  },
+  {
+    id: "dream-planet",
+    name: "ゆめの惑星",
+    icon: "🪐",
+    rarity: "レア",
+    weight: 8,
+    machine: "starry",
+    description: "小さな輪の中に、誰かの夢が眠っています。"
+  },
+  {
+    id: "star-whale",
+    name: "星くじら",
+    icon: "🐋",
+    rarity: "レア",
+    weight: 6,
+    machine: "starry",
+    description: "夜空を泳ぎながら、流れ星を集めています。"
+  },
+  {
+    id: "aurora-butterfly",
+    name: "オーロラちょう",
+    icon: "🦋",
+    rarity: "レア",
+    weight: 5,
+    machine: "starry",
+    description: "羽ばたくたび、夜空に七色の光が広がります。"
+  },
+  {
+    id: "moon-rabbit",
+    name: "月のうさぎ",
+    icon: "🐇",
+    rarity: "スーパーレア",
+    weight: 3,
+    machine: "starry",
+    description: "月の裏側で、夢のお餅をついているそうです。"
+  },
+  {
+    id: "dream-galaxy",
+    name: "夢の銀河",
+    icon: "🌌",
+    rarity: "スーパーレア",
+    weight: 1,
+    machine: "starry",
+    description: "まだ誰も見たことのない夢が集まった銀河。"
   }
 ];
 
@@ -255,6 +367,7 @@ const machines = [
     name: "はじまりのガチャ",
     description: "夢の町の、最初のガチャ。",
     price: 10,
+    unlockCost: 0,
     icon: "🌙",
     theme: "pink"
   },
@@ -263,8 +376,18 @@ const machines = [
     name: "おとぎの森ガチャ",
     description: "森に住む、不思議な生き物たち。",
     price: 15,
+    unlockCost: 50,
     icon: "🌿",
     theme: "green"
+  },
+  {
+    id: "starry",
+    name: "星空ガチャ",
+    description: "星と夢が集まる、夜空のガチャ。",
+    price: 20,
+    unlockCost: 100,
+    icon: "🌌",
+    theme: "purple"
   }
 ];
 
@@ -381,9 +504,21 @@ const resultNote = document.getElementById("result-note");
 const collectionGrid = document.getElementById("collection");
 const collectionCount = document.getElementById("collection-count");
 const progressBar = document.getElementById("progress-bar");
+const collectionTabs = document.getElementById("collection-tabs");
+const collectionRate = document.getElementById("collection-rate");
+const collectionCategoryTitle = document.getElementById("collection-category-title");
+const collectionCategoryDescription = document.getElementById("collection-category-description");
+const collectionCategoryCount = document.getElementById("collection-category-count");
+const collectionCategoryProgress = document.getElementById("collection-category-progress");
+
+// 現在表示している図鑑のタブ
+let selectedCollectionTab = "all";
 const unlockButton = document.getElementById("unlock-button");
 const unlockRequirements = document.getElementById("unlock-requirements");
 const unlockCard = document.getElementById("unlock-card");
+const unlockIcon = document.getElementById("unlock-icon");
+const unlockName = document.getElementById("unlock-name");
+const unlockDescription = document.getElementById("unlock-description");
 const incomeStatus = document.getElementById("income-status");
 const resetButton = document.getElementById("reset-button");
 
@@ -644,15 +779,82 @@ function showResult(item, isNew) {
 // コレクション図鑑
 // ========================================
 
+
 function renderCollection() {
+  // 図鑑のタブを生成
+  renderCollectionTabs();
+
+  // 選択中のタブに応じて表示対象を絞り込む
+  let visibleItems;
+
+  if (selectedCollectionTab === "all") {
+    visibleItems = items;
+  } else {
+    visibleItems = items.filter(
+      item => item.machine === selectedCollectionTab
+    );
+  }
+
+  // 所持済みの種類数を数える
+  const ownedCount = visibleItems.filter(
+    item => (save.inventory[item.id] || 0) > 0
+  ).length;
+
+  const totalCount = visibleItems.length;
+  const rate = totalCount > 0
+    ? Math.round((ownedCount / totalCount) * 100)
+    : 0;
+
+  // 全体の収集率は常に全アイテムを対象にする
+  const allOwnedCount = getOwnedUniqueCount();
+  const allTotalCount = items.length;
+  const allRate = allTotalCount > 0
+    ? Math.round((allOwnedCount / allTotalCount) * 100)
+    : 0;
+
+  collectionCount.textContent =
+    `${allOwnedCount} / ${allTotalCount}種類`;
+
+  progressBar.style.width = `${allRate}%`;
+
+  collectionRate.textContent = allRate === 100
+    ? "コンプリート達成！ すべての夢を集めました！"
+    : `収集率 ${allRate}%。まだ出会っていない夢があります。`;
+
+  // 選択中のカテゴリ名と説明
+  if (selectedCollectionTab === "all") {
+    collectionCategoryTitle.textContent = "すべてのアイテム";
+    collectionCategoryDescription.textContent =
+      "夢の町にあるアイテムを集めよう。";
+  } else {
+    const machine = machines.find(
+      machine => machine.id === selectedCollectionTab
+    );
+
+    collectionCategoryTitle.textContent = machine
+      ? `${machine.icon} ${machine.name}`
+      : "アイテム図鑑";
+
+    collectionCategoryDescription.textContent = machine
+      ? machine.description
+      : "アイテムを集めよう。";
+  }
+
+  collectionCategoryCount.textContent =
+    `${ownedCount} / ${totalCount}種類`;
+
+  collectionCategoryProgress.style.width = `${rate}%`;
+
+  // アイテムカードを描画
   collectionGrid.replaceChildren();
 
-  items.forEach(item => {
+  visibleItems.forEach(item => {
     const count = save.inventory[item.id] || 0;
     const owned = count > 0;
 
     const card = document.createElement("div");
-    card.className = "collectible " + (owned ? "owned" : "unknown");
+    card.className = "collectible " +
+      (owned ? "owned" : "unknown");
 
     const icon = document.createElement("div");
     icon.className = "collectible-icon";
@@ -664,15 +866,55 @@ function renderCollection() {
 
     const amount = document.createElement("div");
     amount.className = "collectible-count";
-    amount.textContent = owned ? `× ${count}` : "未発見";
+    amount.textContent = owned ? `所持数 ${count}` : "未発見";
 
     card.append(icon, name, amount);
     collectionGrid.appendChild(card);
   });
+}
 
-  const ownedCount = getOwnedUniqueCount();
-  collectionCount.textContent = `${ownedCount} / ${items.length}`;
-  progressBar.style.width = `${(ownedCount / items.length) * 100}%`;
+// ガチャ機械のデータから図鑑タブを自動生成
+function renderCollectionTabs() {
+  collectionTabs.replaceChildren();
+
+  const tabs = [
+    {
+      id: "all",
+      label: "📚 すべて"
+    },
+    ...machines.map(machine => ({
+      id: machine.id,
+      label: `${machine.icon} ${machine.name}`
+    }))
+  ];
+
+  // 選択中のタブが存在しなくなった場合は「すべて」に戻す
+  if (!tabs.some(tab => tab.id === selectedCollectionTab)) {
+    selectedCollectionTab = "all";
+  }
+
+  tabs.forEach(tab => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "collection-tab";
+
+    const active = tab.id === selectedCollectionTab;
+
+    if (active) {
+      button.classList.add("active");
+    }
+
+    button.textContent = tab.label;
+    button.setAttribute("role", "tab");
+    button.setAttribute("aria-selected", String(active));
+
+    button.addEventListener("click", () => {
+      selectedCollectionTab = tab.id;
+      renderCollection();
+    });
+
+    collectionTabs.appendChild(button);
+  });
 }
 
 // ========================================
@@ -681,56 +923,69 @@ function renderCollection() {
 // ========================================
 
 function renderUnlock() {
-  const alreadyUnlocked = save.unlockedMachines.includes("forest");
-  const ownedCount = getOwnedUniqueCount();
+  // まだ購入していない、次のガチャを探す
+  const machine = machines.find(
+    item => !save.unlockedMachines.includes(item.id)
+  );
 
-  if (alreadyUnlocked) {
-    unlockCard.classList.add("unlocked");
-    unlockRequirements.textContent = "解放済み！ お店で選べます。";
-    unlockButton.textContent = "解放済み";
-    unlockButton.disabled = true;
+  // すべて購入済みならカードを隠す
+  if (!machine) {
+    unlockCard.style.display = "none";
     return;
   }
 
-  unlockCard.classList.remove("unlocked");
+  // 購入カードを表示する
+  unlockCard.style.display = "";
 
-  const enoughItems = ownedCount >= UNLOCK_COLLECTION_COUNT;
-  const enoughCoins = save.coins >= UNLOCK_COST;
+  // 次に購入するガチャの情報を表示する
+  unlockIcon.textContent = machine.icon;
+  unlockName.textContent = machine.name;
+  unlockDescription.textContent = machine.description;
 
+  // 購入価格を表示する
   unlockRequirements.textContent =
-    `図鑑 ${ownedCount}/${UNLOCK_COLLECTION_COUNT} 種類・コイン ${Math.floor(save.coins)}/${UNLOCK_COST} 枚`;
+    `購入価格：${machine.unlockCost}コイン`;
 
-  if (enoughItems && enoughCoins) {
-    unlockButton.textContent = `🪙 ${UNLOCK_COST}コインで解放`;
+  // コイン残高に応じてボタンを更新する
+  if (save.coins >= machine.unlockCost) {
+    unlockButton.textContent =
+      `${machine.icon} ${machine.name}を購入する`;
     unlockButton.disabled = false;
   } else {
-    unlockButton.textContent = "条件を達成しよう";
+    const shortage = machine.unlockCost - save.coins;
+
+    unlockButton.textContent =
+      `${machine.name}（あと${shortage}コイン）`;
     unlockButton.disabled = true;
   }
 }
 
-function unlockForest() {
-  if (save.unlockedMachines.includes("forest")) return;
+function purchaseMachine(machineId) {
+  const machine = machines.find(item => item.id === machineId);
 
-  const ownedCount = getOwnedUniqueCount();
-
-  if (ownedCount < UNLOCK_COLLECTION_COUNT) {
-    setStatus(`まず図鑑を${UNLOCK_COLLECTION_COUNT}種類集めましょう。`);
+  // 存在しない機械や、すでに購入済みの機械は処理しない
+  if (!machine || save.unlockedMachines.includes(machineId)) {
     return;
   }
 
-  if (save.coins < UNLOCK_COST) {
-    setStatus(`${UNLOCK_COST}コイン必要です。もう少し貯めましょう。`);
+  // コインが足りない場合
+  if (save.coins < machine.unlockCost) {
+    alert(
+      `コインが足りません！\n必要なコイン：${machine.unlockCost}枚`
+    );
     return;
   }
 
-  save.coins -= UNLOCK_COST;
-  save.unlockedMachines.push("forest");
+  // コインを支払って購入
+  save.coins -= machine.unlockCost;
+  save.unlockedMachines.push(machineId);
 
+  // 購入した機械を選択状態にする
+  save.selectedMachine = machineId;
+
+  // 購入結果を保存して画面を更新
   saveGame();
   renderAll();
-
-  setStatus("おめでとう！ おとぎの森ガチャが解放されました！");
 }
 
 // ========================================
@@ -746,24 +1001,46 @@ function renderAll() {
   updateIncomeStatus();
 }
 
-// ========================================
+
+ // ========================================
 // ボタンイベント
 // ========================================
 
 drawButton.addEventListener("click", drawGacha);
-unlockButton.addEventListener("click", unlockForest);
 
-resetButton.addEventListener("click", () => {
-  const confirmed = window.confirm(
-    "コイン・図鑑・解放状況をすべて消して、最初から始めますか？"
+unlockButton.addEventListener("click", () => {
+  const machine = machines.find(
+    item => !save.unlockedMachines.includes(item.id)
   );
 
-  if (!confirmed) return;
+  if (machine) {
+    purchaseMachine(machine.id);
+  }
+});
 
+// セーブデータのリセット
+resetButton.addEventListener("click", () => {
+  const confirmed = window.confirm(
+    "セーブデータをリセットしますか？\n" +
+    "コイン、図鑑、購入したガチャが初期状態に戻ります。"
+  );
+
+  // キャンセルされた場合は何もしない
+  if (!confirmed) {
+    return;
+  }
+
+  // このゲーム専用の保存データだけを削除
+  localStorage.removeItem(SAVE_KEY);
+
+  // 初期状態のセーブデータを作成
   save = createNewSave();
-  saveGame();
+
+  // 表示を初期状態に更新
+  selectedCollectionTab = "all";
   resultBox.classList.add("hidden");
   setStatus("新しい夢の町が始まりました！");
+  saveGame();
   renderAll();
 });
 
