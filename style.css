@@ -706,3 +706,258 @@ footer p {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* =================================
+   ガチャ別コレクション図鑑
+================================= */
+
+.collection-section {
+  margin: 24px auto;
+  padding: 18px;
+  max-width: 1000px;
+  color: #5b493f;
+  background: #fffaf0;
+  border: 3px solid #e9d8bd;
+  border-radius: 18px;
+  box-sizing: border-box;
+}
+
+.collection-section *,
+.collection-section *::before,
+.collection-section *::after {
+  box-sizing: border-box;
+}
+
+.collection-section h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.5;
+}
+
+.collection-section h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.collection-section p {
+  margin: 6px 0 0;
+}
+
+.collection-section .eyebrow {
+  margin: 0 0 5px;
+  color: #aa8b78;
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+}
+
+.section-description {
+  color: #907c6e;
+  font-size: 0.85rem;
+}
+
+/* 収集率のパネル */
+
+.collection-summary {
+  margin-top: 18px;
+  padding: 15px;
+  background: #f8eddb;
+  border: 1px solid #ead7bb;
+  border-radius: 12px;
+}
+
+.collection-summary-top,
+.collection-category-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.collection-summary-top {
+  font-size: 0.9rem;
+}
+
+.collection-summary-top strong,
+.collection-category-count {
+  flex-shrink: 0;
+  color: #805a43;
+  font-size: 0.9rem;
+}
+
+.collection-summary #collection-rate {
+  color: #8b7664;
+  font-size: 0.8rem;
+}
+
+.collection-progress-track {
+  width: 100%;
+  height: 10px;
+  margin-top: 10px;
+  overflow: hidden;
+  background: #e8dccb;
+  border-radius: 999px;
+}
+
+.collection-progress-fill {
+  height: 100%;
+  width: 0;
+  background: #d69a78;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+/* ガチャ別タブ */
+
+.collection-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 18px 0;
+  padding: 2px 0 8px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.collection-tab {
+  flex: 0 0 auto;
+  min-height: 42px;
+  padding: 10px 15px;
+  color: #806b5b;
+  background: #fff;
+  border: 2px solid #e8d7c2;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.collection-tab.active {
+  color: #fffaf3;
+  background: #a97b62;
+  border-color: #a97b62;
+}
+
+.collection-tab:focus-visible {
+  outline: 3px solid #d7a85f;
+  outline-offset: 3px;
+}
+
+/* 選択中のカテゴリ */
+
+.collection-category-summary {
+  margin-bottom: 8px;
+}
+
+.collection-category-summary p {
+  color: #927d6c;
+  font-size: 0.78rem;
+}
+
+.category-progress-track {
+  height: 7px;
+  margin: 10px 0 18px;
+}
+
+.category-progress-fill {
+  background: #92ad83;
+}
+
+/* アイテムカードのグリッド */
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.collectible {
+  min-width: 0;
+  padding: 10px 5px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #eadfce;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+.collectible.owned {
+  background: #fffdf7;
+  border-color: #e5c9a8;
+}
+
+.collectible.unknown {
+  background: #f2eee7;
+  border-style: dashed;
+  border-color: #ddd2c4;
+}
+
+.collectible-icon {
+  display: grid;
+  place-items: center;
+  min-height: 48px;
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+.collectible.unknown .collectible-icon {
+  color: #b6a899;
+}
+
+.collectible-name {
+  margin-top: 5px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.collectible-count {
+  margin-top: 4px;
+  color: #9a806a;
+  font-size: 0.7rem;
+}
+
+.collectible.unknown .collectible-name,
+.collectible.unknown .collectible-count {
+  color: #a89b8d;
+}
+
+/* スマホ対応 */
+
+@media (max-width: 480px) {
+  .collection-section {
+    margin: 16px auto;
+    padding: 13px;
+    border-width: 2px;
+    border-radius: 15px;
+  }
+
+  .collection-section h2 {
+    font-size: 1.15rem;
+  }
+
+  .collection-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .collectible {
+    padding: 9px 4px;
+  }
+
+  .collectible-icon {
+    min-height: 42px;
+    font-size: 1.8rem;
+  }
+
+  .collectible-name {
+    font-size: 0.7rem;
+  }
+
+  .collection-tab {
+    padding: 9px 12px;
+    font-size: 0.8rem;
+  }
+}
