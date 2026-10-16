@@ -1184,7 +1184,7 @@ function renderCollection() {
     : 0;
 
   collectionCount.textContent =
-    `${allOwnedCount} / ${allTotalCount}種類`;
+    `${allOwnedCount} / ${allTotalCount}`;
 
   progressBar.style.width = `${allRate}%`;
 
@@ -1212,7 +1212,7 @@ function renderCollection() {
   }
 
   collectionCategoryCount.textContent =
-    `${ownedCount} / ${totalCount}種類`;
+    `${ownedCount} / ${totalCount}`;
 
   collectionCategoryProgress.style.width = `${rate}%`;
 
