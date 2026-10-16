@@ -961,3 +961,299 @@ footer p {
     font-size: 0.8rem;
   }
 }
+
+/* ガチャボタン下の現在コイン表示 */
+.current-coins {
+  margin-top: 10px;
+  text-align: center;
+  color: var(--pink-dark);
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+#current-coins-value {
+  color: var(--pink-dark);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* ========================================
+   ガチャごとのテーマカラー
+======================================== */
+
+/* はじまりのガチャ：ミルキーピンク */
+.mini-machine.pink {
+  border-color: #c98298;
+  background: linear-gradient(
+    #f7b9cb 0 20%,
+    #fff0f2 20% 80%,
+    #e58ca6 80%
+  );
+  box-shadow: inset -5px 0 #d87996;
+}
+
+.machine-art.pink {
+  background: #f6a9c0;
+  border-color: #c16c89;
+  box-shadow: 6px 7px 0 #b76e88;
+}
+
+.pink .machine-top,
+.pink .machine-base {
+  background: #c45d7c;
+}
+
+/* おとぎの森：リーフグリーン */
+.mini-machine.green {
+  border-color: #82ae82;
+  background: linear-gradient(
+    #b6ddb0 0 20%,
+    #f2ffe8 20% 80%,
+    #80b781 80%
+  );
+  box-shadow: inset -5px 0 #76a975;
+}
+
+.machine-art.green {
+  background: #9fcf9b;
+  border-color: #62976b;
+  box-shadow: 6px 7px 0 #7b9f70;
+}
+
+.green .machine-top,
+.green .machine-base {
+  background: #5e9368;
+}
+
+/* 星空ガチャ：ミッドナイトブルー */
+.mini-machine.purple {
+  border-color: #718bc2;
+  background: linear-gradient(
+    #9bb9e8 0 20%,
+    #eaf1ff 20% 80%,
+    #718bc2 80%
+  );
+  box-shadow: inset -5px 0 #587cb9;
+}
+
+.machine-art.purple {
+  background: #9bb9e8;
+  border-color: #718bc2;
+  box-shadow: 6px 7px 0 #587cb9;
+}
+
+.purple .machine-top,
+.purple .machine-base {
+  background: #587cb9;
+}
+
+/* おかしの国：ピーチオレンジ */
+.mini-machine.orange {
+  border-color: #d99b6d;
+  background: linear-gradient(
+    #f5c49b 0 20%,
+    #fff3df 20% 80%,
+    #e7a16d 80%
+  );
+  box-shadow: inset -5px 0 #cf8955;
+}
+
+.machine-art.orange {
+  background: #f2c095;
+  border-color: #d99b6d;
+  box-shadow: 6px 7px 0 #c98754;
+}
+
+.orange .machine-top,
+.orange .machine-base {
+  background: #c98754;
+}
+
+/* まぼろし和風：あずきローズ */
+.mini-machine.rose {
+  border-color: #b86d75;
+  background: linear-gradient(
+    #dfa6a4 0 20%,
+    #fff0e8 20% 80%,
+    #c9777b 80%
+  );
+  box-shadow: inset -5px 0 #a95661;
+}
+
+.machine-art.rose {
+  background: #d99a9b;
+  border-color: #b86d75;
+  box-shadow: 6px 7px 0 #a95661;
+}
+
+.rose .machine-top,
+.rose .machine-base {
+  background: #a95661;
+}
+
+/* 水晶の秘境：クリスタルラベンダー */
+.mini-machine.crystal {
+  border-color: #9485cb;
+  background: linear-gradient(
+    #c4b9f0 0 20%,
+    #f6f0ff 20% 80%,
+    #a294d9 80%
+  );
+  box-shadow: inset -5px 0 #8170b8;
+}
+
+.machine-art.crystal {
+  background: #b9afe8;
+  border-color: #9485cb;
+  box-shadow: 6px 7px 0 #8170b8;
+}
+
+.crystal .machine-top,
+.crystal .machine-base {
+  background: #8170b8;
+}
+
+/* カプセルの窓枠も機械の色に合わせる */
+.machine-art.pink .capsule-window {
+  border-color: #d9a0b6;
+}
+
+.machine-art.green .capsule-window {
+  border-color: #94bd8c;
+}
+
+.machine-art.purple .capsule-window {
+  border-color: #8ca6d9;
+}
+
+.machine-art.orange .capsule-window {
+  border-color: #e0ae82;
+}
+
+.machine-art.rose .capsule-window {
+  border-color: #cc898b;
+}
+
+.machine-art.crystal .capsule-window {
+  border-color: #a99cdb;
+}
+
+
+/* ========================================
+   ガチャごとのテーマカラー
+======================================== */
+
+/* はじまりのガチャ：ミルキーピンク */
+.mini-machine.pink,
+.machine-art.pink {
+  background: linear-gradient(
+    #f7b9cb 0 20%,
+    #fff0f2 20% 80%,
+    #e58ca6 80%
+  ) !important;
+  border-color: #c98298;
+}
+
+/* おとぎの森ガチャ：リーフグリーン */
+.mini-machine.green,
+.machine-art.green {
+  background: linear-gradient(
+    #a9d3a0 0 20%,
+    #eff8e9 20% 80%,
+    #78ad78 80%
+  ) !important;
+  border-color: #659568;
+}
+
+/* 星空ガチャ：ミッドナイトブルー */
+.mini-machine.purple,
+.machine-art.purple {
+  background: linear-gradient(
+    #9bb9e8 0 20%,
+    #eaf1ff 20% 80%,
+    #718bc2 80%
+  ) !important;
+  border-color: #718bc2;
+}
+
+/* おかしの国ガチャ：ピーチオレンジ */
+.mini-machine.orange,
+.machine-art.orange {
+  background: linear-gradient(
+    #f5c49b 0 20%,
+    #fff3df 20% 80%,
+    #e7a16d 80%
+  ) !important;
+  border-color: #d99b6d;
+}
+
+/* まぼろし和風ガチャ：あずきローズ */
+.mini-machine.rose,
+.machine-art.rose {
+  background: linear-gradient(
+    #dfa6a4 0 20%,
+    #fff0e8 20% 80%,
+    #c9777b 80%
+  ) !important;
+  border-color: #b86d75;
+}
+
+/* 水晶の秘境ガチャ：クリスタルラベンダー */
+.mini-machine.crystal,
+.machine-art.crystal {
+  background: linear-gradient(
+    #c4b9f0 0 20%,
+    #f6f0ff 20% 80%,
+    #a294d9 80%
+  ) !important;
+  border-color: #9485cb;
+}
+
+/* 大きなガチャの上部・下部もテーマカラーに */
+.machine-art.pink .machine-top,
+.machine-art.pink .machine-base {
+  background: #c45d7c !important;
+}
+
+.machine-art.green .machine-top,
+.machine-art.green .machine-base {
+  background: #5e9368 !important;
+}
+
+.machine-art.purple .machine-top,
+.machine-art.purple .machine-base {
+  background: #587cb9 !important;
+}
+
+.machine-art.orange .machine-top,
+.machine-art.orange .machine-base {
+  background: #c98754 !important;
+}
+
+.machine-art.rose .machine-top,
+.machine-art.rose .machine-base {
+  background: #a95661 !important;
+}
+
+.machine-art.crystal .machine-top,
+.machine-art.crystal .machine-base {
+  background: #8170b8 !important;
+}
+
+/* カプセル窓の縁 */
+.machine-art.pink .capsule-window { border-color: #d9a0b6; }
+.machine-art.green .capsule-window { border-color: #94bd8c; }
+.machine-art.purple .capsule-window { border-color: #8ca6d9; }
+.machine-art.orange .capsule-window { border-color: #e0ae82; }
+.machine-art.rose .capsule-window { border-color: #cc898b; }
+.machine-art.crystal .capsule-window { border-color: #a99cdb; }
+
+/* ガチャの横長パーツ：やわらかなミルキーグレー */
+.machine-art .machine-slot {
+  background: #d5d0c9 !important;
+  color: #817b73 !important;
+  border: 2px solid #c3bcb3;
+  box-shadow: inset 0 2px 0 #eeeae4;
+}
+
